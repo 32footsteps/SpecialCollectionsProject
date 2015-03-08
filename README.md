@@ -4,9 +4,9 @@
 [Node.js](http://nodejs.org/) are required.*
 * `Create special_collections database in MySQL.`
 * `Create admin user.`
-* `Update admin password in scwebapp/settings.py.`
 * `Fork this repository.`
 * `$ git clone git@github.com:<your username>/https://github.com/zissou1898/SpecialCollectionsProject.git`
+* `Update admin password in scwebapp/settings.py.`
 * `$ cd SpecialCollectionsProject`
 * `$ pip install -r requirements.txt`
 * `$ npm install -g bower`
