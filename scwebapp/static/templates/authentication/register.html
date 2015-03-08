@@ -1,0 +1,34 @@
+	<div class="container">
+		<form role="form" id="signup" ng-submit="vm.register()">
+			<div class="header">
+				<h1>Register</h1>
+			</div>
+
+				<div class="sep"></div>
+				<div class="inputs">
+					<div class="form-group">
+					<label for="email__register">Email</label>
+					<input type="email" id="email__register" ng-model="vm.email" placeholder="ex. something_witty@gmail.com" />
+					</div>
+					<div class="form-group">
+					<label for="register__username">Username</label>
+					<input type="text"  id="register__username" ng-model="vm.username" placeholder="ex. witty_username" />
+					</div>
+					<div class="form-group">
+					<label for="register__first">First name</label>
+					<input type="text" id="register__first" ng-model="vm.first_name" placeholder="ex. Arthur" />
+					</div>
+					<div class="form-group">
+					<label for="register__last">Last name</label>
+					<input type="text"  id="register__last" ng-model="vm.last_name" placeholder="ex. Schopenhauer" />
+					</div>
+					<div class="form-group">
+					<label for="register__password">Password</label>
+					<input type="password"  id="register__password" ng-model="vm.password" placeholder="ex. something_secret_something_safe" />
+					</div>
+					
+					<button type="submit"  id="submit">Submit</button>
+					</div>
+			</form>
+
+</div>
