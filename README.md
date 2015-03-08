@@ -12,7 +12,6 @@
 * `$ ./manage.py migrate`
 * `$ cd bin`
 * `$ source activate`
-* `$ cd ..`
-* `$ cd scwebapp`
+* `$ cd .. && cd scwebapp`
 * `$ ./manage.py runserver`
 * `Open your browser to localhost:8000`
