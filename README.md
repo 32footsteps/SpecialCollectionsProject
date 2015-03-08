@@ -1,5 +1,5 @@
 # SpecialCollectionsProject
-##Setup Instructions Linux
+##Setup Instructions for Linux
 *[virtualenv](http://virtualenv.readthedocs.org/en/latest/) and
 [Node.js](http://nodejs.org/) are required.*
 * `Fork this repository.`
@@ -14,3 +14,4 @@
 * `$ source activate`
 * `$ cd ..`
 * `$ ./manage.py runserver`
+* `Open your browser to localhost:8000`
