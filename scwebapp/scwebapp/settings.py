@@ -65,9 +65,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'special_collections',
-        'USER': 'root',
-        #'USER': 'admin',
-       
+        #'USER': 'root',
+        'USER': 'admin',
+        'PASSWORD': 'uptoyou',
         'HOST': 'localhost',
         #'PORT': '3306',
     }
