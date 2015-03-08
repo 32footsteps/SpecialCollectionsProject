@@ -13,5 +13,6 @@
 * `$ cd bin`
 * `$ source activate`
 * `$ cd ..`
+* `$ cd scwebapp`
 * `$ ./manage.py runserver`
 * `Open your browser to localhost:8000`
