@@ -55,16 +55,15 @@
 				first_name: firstname,
 				last_name: lastname
 			}).then(registerSuccessFn, registerErrorFn);
-		}
+		
 
 		/**
    		* @name registerSuccessFn
    		* @desc Set the authenticated account and redirect to index
    		*/
    		function registerSuccessFn(data, status, headers, config) {
-   			Authentication.login('username', 'password');
+   			Authentication.login(username, password);
 
-   			//window.location = "/";
    		}
 
    		/**
@@ -74,7 +73,7 @@
    		function registerErrorFn(data, status, header, config) {
    			console.error("Failure!");
    		}
-
+}
 		/**
     	* @name login
     	* @desc Try to login with the given username and password

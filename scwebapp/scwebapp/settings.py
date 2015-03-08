@@ -67,7 +67,7 @@ DATABASES = {
         'NAME': 'special_collections',
         #'USER': 'root',
         'USER': 'admin',
-        'PASSWORD': 'uptoyou',
+        'PASSWORD': 'jumanji23',
         'HOST': 'localhost',
         #'PORT': '3306',
     }
