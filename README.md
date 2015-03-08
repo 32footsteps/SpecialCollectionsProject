@@ -10,7 +10,7 @@
 * `$ npm install`
 * `$ bower install`
 * `$ python manage.py migrate`
-* `$ cd SpecialCollectionsProject/bin`
+* `$ cd bin`
 * `$ source activate`
 * `$ cd ..`
 * `$ python manage.py runserver`
