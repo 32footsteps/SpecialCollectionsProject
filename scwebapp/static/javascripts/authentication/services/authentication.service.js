@@ -48,7 +48,8 @@
     	* @memberOf scwebapp.authentication.services.Authentication
     	*/
     	function register(email, password, username, firstname, lastname) {
-			return $http.post('/api/v1/scusers/', {
+			console.log("email " + email);
+      return $http.post('/api/v1/scusers/', {
 				email: email,
 				password: password,
 				username: username,

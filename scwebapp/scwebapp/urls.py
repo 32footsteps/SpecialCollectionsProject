@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from rest_framework_nested import routers
 from scwebapp.views import IndexView
-from collection.views import SCUserViewSet, LoginView, LogoutView
+from collection_user.views import SCUserViewSet, LoginView, LogoutView
 
 router = routers.SimpleRouter()
 router.register(r'scusers', SCUserViewSet)

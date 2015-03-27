@@ -26,6 +26,7 @@ TEMPLATE_DEBUG = True
 
 #ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
+MEDIA_ROOT = '/home/zissou/Desktop/SeniorProject'
 
 # Application definition
 
@@ -40,6 +41,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'rest_framework',
     'collection',
+    'collection_user',
+    'collection_item',
     'compressor',
 )
 
@@ -116,4 +119,4 @@ REST_FRAMEWORK = {
 }
 
 
-AUTH_USER_MODEL = "collection.SCUser"
+AUTH_USER_MODEL = "collection_user.SCUser"
