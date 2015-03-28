@@ -21,6 +21,10 @@
 			controller: 'LoginController',
 			controllerAs: 'vm',
 			templateUrl: '/static/templates/authentication/login.html'
+		}).when('/database', {
+			//controller: 'LoginController',
+			//controllerAs: 'vm',
+			templateUrl: '/templates/database.html'
 		}).otherwise('/');
 	}
 })();

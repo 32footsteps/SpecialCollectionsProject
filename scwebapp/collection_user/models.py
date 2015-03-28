@@ -31,6 +31,7 @@ class SCUserManager(BaseUserManager):
 		user = self.create_user(email, password, **kwargs)
 
 		user.is_admin = True
+
 		user.save()
 
 		return user
@@ -44,6 +45,8 @@ class SCUser(AbstractBaseUser):
 	last_name = models.CharField(max_length=50, blank=False)
 
 	is_admin = models.BooleanField(default=False)
+	is_staff = models.BooleanField(default=False)
+	#has_access = models.BooleanField(default=False)
 
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)
@@ -52,6 +55,26 @@ class SCUser(AbstractBaseUser):
 
 	USERNAME_FIELD = 'username'
 	REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
+
+	def get_long_name(self):
+		return ' '.join([self.first_name, self.last_name])
+
+	def get_short_name(self):
+		return self.first_name
+
+	@property
+	def is_superuser(self):
+		return self.is_admin
+
+	@property
+	def is_staff(self):
+		return self.is_admin
+
+	def has_perm(self, perm, obj=None):
+		return self.is_admin
+	
+	def has_module_perms(self, app_label):
+		return self.is_admin
 
 	def __str__(self):
 		return self.username

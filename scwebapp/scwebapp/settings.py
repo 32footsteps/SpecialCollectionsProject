@@ -26,7 +26,8 @@ TEMPLATE_DEBUG = True
 
 #ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
-MEDIA_ROOT = '/home/zissou/Desktop/SeniorProject'
+MEDIA_ROOT = '/home/zissou/Desktop/SeniorProject/'
+MEDIA_URL = '/media/'
 
 # Application definition
 
