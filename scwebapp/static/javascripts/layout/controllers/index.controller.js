@@ -30,7 +30,7 @@
 		function activate() {
 			Collections.all().then(collectionsSuccessFn, collectionsErrorFn);
 
-			$scope.$on('collection.created', function (event, post) {
+			$scope.$on('collection.created', function (event, collection) {
 				vm.collections.unshift(collection);
 			});
 
@@ -43,7 +43,7 @@
 			* @desc update collections array on view
 			*/
 			function collectionsSuccessFn(data, status, headers, config) {
-				vm.posts = data.data;
+				vm.collections = data.data;
 			}
 
 			/**
