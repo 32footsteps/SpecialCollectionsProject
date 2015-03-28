@@ -20,12 +20,13 @@ class CollectionViewSet(viewsets.ModelViewSet):
 
 		return (permissions.IsAuthenticated(), IsAuthorOfCollection(),)
 
+#perform_create hook makes user associated with request author of Collection
 def perform_create(self, serializer):
 	instance = serializer.save(author=self.request.user)
 
 	return super(CollectionViewSet, self).perform_create(serializer)
 
-
+#gets list of Collections associated with specific SCUser
 class SCUserCollectionViewSet(viewsets.ViewSet):
 	queryset = Collection.objects.select_related('author').all()
 	serializer_class = CollectionSerializer
