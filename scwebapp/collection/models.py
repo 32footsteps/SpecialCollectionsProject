@@ -9,7 +9,7 @@ class Collection(models.Model):
 	collection_name = models.CharField(max_length=80, primary_key=True)
 	author = models.ForeignKey(SCUser, blank=False)
 	collection_description = models.TextField()
-	item = models.ManyToManyField(Item, blank=False)
+	item = models.ManyToManyField(Item, blank=True)
 
 	created_at = models.DateTimeField(auto_now_add=True)
 	updated_at = models.DateTimeField(auto_now=True)

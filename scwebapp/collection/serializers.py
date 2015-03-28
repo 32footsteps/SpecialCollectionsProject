@@ -2,10 +2,11 @@ from django.contrib.auth import update_session_auth_hash
 from rest_framework import serializers
 from collection.models import Collection
 from collection_user.models import SCUser
+from collection_user.serializers import SCUserSerializer
 
 
 class CollectionSerializer(serializers.ModelSerializer):
-	author = SCUserSerializer(read_only=true, required=False)
+	author = SCUserSerializer(read_only=True, required=False)
 
 	class Meta:
 		model = Collection
