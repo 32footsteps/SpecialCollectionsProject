@@ -15,4 +15,23 @@ class CollectionViewSet(viewsets.ModelViewSet):
 	serializer_class = CollectionSerializer
 
 	def get_permissions(self):
-		if self.request.method in
+		if self.request.method in permissions.SAFE_METHODS:
+			return (permissions.AllowAny(),)
+
+		return (permissions.IsAuthenticated(), IsAuthorOfCollection(),)
+
+def perform_create(self, serializer):
+	instance = serializer.save(author=self.request.user)
+
+	return super(CollectionViewSet, self).perform_create(serializer)
+
+
+class SCUserCollectionViewSet(viewsets.ViewSet):
+	queryset = Collection.objects.select_related('author').all()
+	serializer_class = CollectionSerializer
+
+	def list(self, request, account_username=None):
+		queryset = self.queryset.filter(author__username=account_username)
+		serializer = self.serializer_class(queryset, many=True)
+
+		return Response(serializer.data)
