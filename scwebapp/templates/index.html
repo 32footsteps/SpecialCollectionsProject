@@ -13,7 +13,9 @@
 		<div class="col-xs-12 ng-view"></div>
 		</div>
 	</div>
-	
+	{% if user.is_authenticated %}
+	{% include 'scdashboard.html' %}
+	{% endif %}
 	{% include 'javascripts.html' %}
 </body>
 </html>

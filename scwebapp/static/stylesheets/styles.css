@@ -181,24 +181,3 @@ h3,h4,h5,.panel {
 }
 
 
-.no-collections-here {
-  text-align: center;
-}
-
-.collection {}
-
-.collection .collection__meta {
-  font-weight: bold;
-  text-align: right;
-  padding-bottom: 19px;
-}
-
-.collection .collection__meta a:hover {
-  text-decoration: none;
-}
-
-.btn-add-new-collection {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-}

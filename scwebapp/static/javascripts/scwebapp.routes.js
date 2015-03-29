@@ -25,10 +25,6 @@
 			//controller: 'LoginController',
 			//controllerAs: 'vm',
 			templateUrl: '/templates/database.html'
-		}).when('/', {
-			controller: 'IndexController',
-			controllerAs: 'vm',
-			templateUrl: '/static/templates/layout/index.html'
 		}).otherwise('/');
 	}
 })();

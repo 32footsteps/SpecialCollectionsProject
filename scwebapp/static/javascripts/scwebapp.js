@@ -6,9 +6,7 @@
 			'scwebapp.config',
 			'scwebapp.routes',
 			'scwebapp.authentication',
-			'scwebapp.layout',
-			'scwebapp.collections',
-			'scwebapp.utils'
+			'scwebapp.layout'
 		]);
 
 	angular
