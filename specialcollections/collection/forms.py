@@ -5,15 +5,6 @@ from crispy_forms.layout import Layout, Div, Submit, HTML, Button, Row, Field
 from crispy_forms.bootstrap import AppendedText, PrependedText, FormActions 
 
 class CollectionForm(forms.ModelForm):
-	'''def __init__(self, *args, **kwargs):
-		super(CollectionForm, self).__init__(*args, **kwargs)
-		self.helper = FormHelper()
-		self.helper.form_id = 'collectionForm'
-		self.helper.form_class = 'blueForms'
-		self.helper.form_method = 'post'
-		self.helper.form_action = 'submit'
-'''
-		#self.helper.add_input(Submit('submit', 'Submit'))
 	#collection = forms.ModelChoiceField(queryset=Collection.objects.all(), widget=forms.HiddenInput())
 	class Meta:
 		model = Collection
