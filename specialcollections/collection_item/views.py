@@ -15,10 +15,8 @@ def create_item(request):
 	if request.method == 'POST':
 		form = ItemForm(request.POST, request.FILES)
 		user = request.user
-		print("item"+str(user.username))
 
 		if form.is_valid():
-			print("form valid")
 			item = form.save(commit=False)
 			item.creator = user.username
 			item.save()
@@ -28,9 +26,6 @@ def create_item(request):
 			return HttpResponseRedirect(reverse('items:index'))
 
 	else:
-
-		print("form empty")
 		form = ItemForm()
-	print("form in valid")
-	messages.error(request, "Error")
+	
 	return render(request, 'items/createitem.html', {'form': form})
