@@ -4,5 +4,5 @@ from collection.views import index_view
 
 
 urlpatterns = patterns('',
-		url(r'^$', index_view, name='index'),
+		url(r'^$', index_view, name='collection'),
 )

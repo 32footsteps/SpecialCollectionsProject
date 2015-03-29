@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block body %}
+<script type='text/javascript'>
+$('input[type="text"]').addClass('form-control');
+$('textarea').addClass('form-control');
+</script>
+
+<div class="jumbotron">
+	<h1 align='center'>Create A New Collection</h1>
+</div>
+
+
+<div class='col-md-12'>
+
+	{% block content %}
+		{% crispy form %}
+	{% endblock %} 
+
+</div>
+
+
+
+{% endblock body %}

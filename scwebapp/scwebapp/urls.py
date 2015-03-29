@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from rest_framework_nested import routers
 from scwebapp.views import IndexView
-from collection.views import SCUserCollectionViewSet, CollectionViewSet
+#from collection.views import SCUserCollectionViewSet, CollectionViewSet
 from collection_user.views import SCUserViewSet, LoginView, LogoutView
 
 router = routers.SimpleRouter()
@@ -15,6 +15,6 @@ urlpatterns = patterns('',
     url(r'^api/v1/auth/login/$', LoginView.as_view(), name='login'),
     url(r'^api/v1/auth/logout/$', LogoutView.as_view(), name='logout'),
     url(r'^.*$', IndexView.as_view(), name="index"),
-    url(r'^collections', include('collection.urls', namespace='collections')),
+    url(r'^collections/', include('collection.urls', namespace='collections')),
 
 )

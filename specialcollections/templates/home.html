@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block body %}
+<!--<div class="container-fluid">
+    <div class="row row-offcanvas row-offcanvas-left">
+        
+      -->  <!--sidebar-->
+      <!--
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+          <div data-spy="affix" data-offset-top="45" data-offset-bottom="90">
+            <ul class="nav" id="sidebar-nav">
+            <li><a href="#">Manage Database</a></li>
+           
+            <li><a href="#">{{ user.username }}'s Collections</a></li>
+              
+            </ul>
+           </div>
+        </div>--><!--/sidebar-->
+<div class="jumbotron">
+	<h2 align='center'>Pueblo City County Library District</h2>
+	<h2 align="center">Special Collections</h2>
+	<div class='container' style="padding-top:10px">
+		<form class='form-horizontal' action="" method="post">{% csrf_token %}
+			<div class="row">
+			<div class='col-md-4'></div>	
+				<div class='col-md-4'>
+
+				<input type='text' id='id_username' name="username" class='form-control' placeholder='Username' />
+				<br />
+				<input type='password' id='id_password' name='password' class='form-control' placeholder='Password' />
+				<br />
+			
+				<input type="submit" id='login_button' value="Login" class='btn btn-primary btn-md btn-block' />
+				</div>
+			<div class='col-md-4'></div>
+			</div>
+		
+		</form>
+	</div>
+
+</div>
+
+{% endblock body %}

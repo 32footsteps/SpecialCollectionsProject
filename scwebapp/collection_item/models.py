@@ -24,22 +24,6 @@ class Item(models.Model):
 
 	item_image = models.ImageField(upload_to='media/')
 
-	def create_item(self, title, **kwargs):
-		if not title:
-			raise ValueError('Valid Title Required')
-
-		if not kwargs.get('subject'):
-			raise ValueError('Valid Subject Required')
-
-		if not kwargs.get('description'):
-			raise ValueError('Valid Description Required')
-
-		if not kwargs.get('publisher'):
-			raise ValueError('Valid Publisher Required')
-
-		item_file_content = ContentFile(str(title))
-		item = Item()
-		item.save
 
 	def __str__(self):
 		return self.title

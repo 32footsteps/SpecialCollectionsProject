@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<!--
+
+<div class="jumbotron">
+<h1 align='center'>{{user.username}}'s Collections</h1>
+</div>
+-->
+
+<div class='col-md-12'>
+{% if collections %}
+	{% for collection in collections %}
+	<div class="jumbotron">
+		<h3 class="page-header">{{collection.collection_name}}</h3>
+		<h4 class="page-header">Collection Description</h4>
+		{{collection.collection_description|linebreaks}}
+		{% for item in collection.items.all %}
+			{{item.title}}{% if not forloop.last %} | {% endif %}
+		{% endfor %}
+	</div>
+	{% endfor %}
+{% else %}
+<div class='alert alert-warning' align='center'>
+	<h3>No Collections Yet!</h3>
+</div>
+{% endif %}
+</div>
+
+{% endblock body %}
