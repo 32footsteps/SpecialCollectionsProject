@@ -31,6 +31,15 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.solr_backend.SolrEngine',
+        'URL': 'http://127.0.0.1:8983/solr'
+        # ...or for multicore...
+        # 'URL': 'http://127.0.0.1:8983/solr/mysite',
+    },
+}
+
 
 # Application definition
 
@@ -41,6 +50,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'haystack',
     'collection',
     'collection_user',
     'collection_item',
@@ -99,3 +109,5 @@ STATIC_ROOT = '/var/www/zissou/static'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
+
+AUTH_USER_MODEL = 'collection_user.SCUser'

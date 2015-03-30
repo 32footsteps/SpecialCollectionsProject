@@ -19,7 +19,8 @@ def create_collection(request):
 
 		if form.is_valid():
 			collection = form.save(commit=False)
-			collection.author = user.username
+			#collection.author = user.username
+			collection.author = user
 			collection.save()
 			messages.add_message(request, messages.INFO, 'Collection Created')
 			return HttpResponseRedirect(reverse('collections:index'))

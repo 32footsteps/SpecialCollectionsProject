@@ -4,7 +4,7 @@ from collection_user.models import SCUser
 
 class Item(models.Model):
 	title = models.CharField(max_length=120, unique=True)
-	creator = models.CharField(max_length=30, blank=False) #models.ForeignKey(SCUser) 
+	creator = models.ForeignKey(SCUser) #models.CharField(max_length=30, blank=False)
 	subject = models.CharField(max_length=120, blank=False)
 	description = models.TextField()
 	publisher = models.CharField(max_length=80, blank=False)

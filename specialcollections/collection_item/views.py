@@ -18,7 +18,8 @@ def create_item(request):
 
 		if form.is_valid():
 			item = form.save(commit=False)
-			item.creator = user.username
+			#item.creator = user.username
+			item.creator = user			
 			item.save()
 			form.save()
 			print("item save item image" + str(item.item_image))
