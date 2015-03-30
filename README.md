@@ -6,7 +6,7 @@
 * `Create admin user.`
 * `Fork this repository.`
 * `$ git clone git@github.com:<your username>/https://github.com/zissou1898/SpecialCollectionsProject.git`
-* `Update admin password in scwebapp/settings.py.`
+* `Update admin password in specialcollections/settings.py.`
 * `$ cd SpecialCollectionsProject`
 * `$ pip install -r requirements.txt`
 * `$ npm install -g bower`
@@ -15,6 +15,6 @@
 * `$ ./manage.py migrate`
 * `$ cd bin`
 * `$ source activate`
-* `$ cd .. && cd scwebapp`
+* `$ cd .. && cd specialcollections`
 * `$ ./manage.py runserver`
 * `Open your browser to localhost:8000`
