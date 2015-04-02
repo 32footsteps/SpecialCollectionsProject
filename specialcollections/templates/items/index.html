@@ -17,7 +17,10 @@
 		<div class="jumbotron">
 			<!--<h2>Search</h2>-->
 		<!--	<label for="search_box">Search</label>-->
-			<input type="text" id="search_box" name="search_term" class='form-control' placeholder='Search Collections' />
+		<form action="/search" method="get" class="navbar-search pull-left">
+		<input type="text" placeholder="Search"  name="q" class='form-control' placeholder='Search Collections' >
+		</form>
+			<!--<input type="text" id="search_box"/>-->
 		</div>
 	</div>
 	<!--<div class='col-md-4'><div class="jumbotron"></div></div>-->

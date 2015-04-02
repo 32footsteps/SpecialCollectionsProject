@@ -1,27 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Search</h2>
+<p>Shitttt</p>
+<div class="row">
+	<div class='col-md-6'>
+		<div class="jumbotron">
+{% for result in page.object_list %}
+   <p>{{ result.object.title }}</p>
+   <p>{{ result.object.subject }}</p>
+{% empty %}
+   <p>No results found.</p>
+{% endfor %}
+</div></div></div>	
 
-<form method="get" action=".">
-	<table>
-		{{ form.as_table }}
-		<tr>
-			<td>&nbsp;</td>
-			<td>
-				<input type="submit" value="Search">
-			</td>
-		</tr>
-	</table>
-
-	{% if query %}
-		<h3>Results</h3>
-
-		{% for items in items %}
-			<li><a href=""></a></li>
-		{% endfor %}
-
-	{% else %}
-
-	<li>No Items</li>
-</form>
+{% endblock %}

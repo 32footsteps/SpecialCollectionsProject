@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 
 
 def index_view(request):
-	collections = Collection.objects.all()
+	collections = Collection.objects.filter(author=request.user)
 	return render(request, 'collections/index.html', {'collections': collections})
 
 def create_collection(request):

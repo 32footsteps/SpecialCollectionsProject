@@ -15,5 +15,5 @@ urlpatterns = patterns('',
     url(r'^collections/', include('collection.urls', namespace="collections")),
     url(r'^collectiondb/', include('collection_item.urls', namespace="items")),
     url(r'^item/', get_item, name='item'),
-    url(r'^search/', include('haystack.urls')),
+    (r'^search/', include('haystack.urls')),
 ) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
