@@ -11,17 +11,33 @@
 
 <div class='col-md-12'>
 
+{% if user == item.creator or user.is_admin %}
+<!-- Create form for editing item-->
 	<div class="jumbotron">
 	<div class="row">
 	<div class='col-md-6'>
+		<p>User is admin {{user.is_admin}}</p>
 		<p>{{item.title}}</p>
 		<p>{{item.subject}}</p>
-		<p>{{item.description}}</p>
+		<p>{{item.description4}}</p>
 		<img src="{{MEDIA_URL}}{{item.item_image}}" height="420" width="420">
 	
 	</div>
 	</div>
 
+{% else %}
+	<div class="jumbotron">
+	<div class="row">
+	<div class='col-md-6'>
+		<p>{{item.title}}</p>
+		<p>{{item.subject}}</p>
+		<p>{{item.description4}}</p>
+		<img src="{{MEDIA_URL}}{{item.item_image}}" height="420" width="420">
+	
+	</div>
+	</div>
+
+{% endif %}
 </div>
 
 {% endblock body %}
