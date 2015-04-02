@@ -11,17 +11,22 @@
 
 <div class='col-md-12'>
 
-	<div class="jumbotron">
+	<!--<div class="jumbotron">-->
 	<div class="row">
-	<div class='col-md-4'>
-		<h2>Search</h2>
-		<input type="text" name="search_term" class='form-control' placeholder='Search Collections' />
+	<div class='col-md-6'>
+		<div class="jumbotron">
+			<!--<h2>Search</h2>-->
+		<!--	<label for="search_box">Search</label>-->
+			<input type="text" id="search_box" name="search_term" class='form-control' placeholder='Search Collections' />
 		</div>
-	<div class='col-md-4'></div>
-	<div class='col-md-4'>
-		<h2><a href="{% url 'items:createitem' %}">Create Item</a></h2>
 	</div>
+	<!--<div class='col-md-4'><div class="jumbotron"></div></div>-->
+	<div class='col-md-6'>
+	<div class="jumbotron">
+			<h4><a href="{% url 'items:createitem' %}">Create Item</a></h4>
+		</div>
 	</div>
+	<!--</div>-->
 
 </div>
 

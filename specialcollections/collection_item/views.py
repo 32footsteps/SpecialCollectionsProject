@@ -3,11 +3,11 @@ from collection_item.models import Item
 from collection_item.forms import ItemForm
 from django.shortcuts import render
 from django.contrib import messages
+from django.template import Context, Template
 from django.http import HttpResponseRedirect
 
 
 def index_view(request):
-	#collections = Collection.objects.all()
 	return render(request, 'items/index.html')#, {'collections': collections})
 
 def create_item(request):
@@ -18,7 +18,6 @@ def create_item(request):
 
 		if form.is_valid():
 			item = form.save(commit=False)
-			#item.creator = user.username
 			item.creator = user			
 			item.save()
 			form.save()
@@ -30,3 +29,11 @@ def create_item(request):
 		form = ItemForm()
 	
 	return render(request, 'items/createitem.html', {'form': form})
+
+def get_item(request):#, item_id):
+	item = Item.objects.get(pk=2)#pk=item_id)
+	print("title " + str(item.title))
+
+	if request.method == 'GET':
+		return render(request, 'items/item.html', {'item': item})	
+		#return HttpResponseRedirect(reverse('items:item'))
