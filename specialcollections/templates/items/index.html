@@ -11,25 +11,38 @@
 
 <div class='col-md-12'>
 
-	<!--<div class="jumbotron">-->
+	
+
+	
 	<div class="row">
-	<div class='col-md-6'>
-		<div class="jumbotron">
-			<!--<h2>Search</h2>-->
-		<!--	<label for="search_box">Search</label>-->
-		<form action="/search" method="get" class="navbar-search pull-left">
-		<input type="text" placeholder="Search"  name="q" class='form-control' placeholder='Search Collections' >
-		</form>
-			<!--<input type="text" id="search_box"/>-->
-		</div>
+		
+				<div class='col-md-4'>
+					<form type="get" action="{% url 'items:searchitem' %}">
+					<input type="text" name="q" class='form-control' placeholder='Search Collections' />
+					<button type="submit" name="item_search_btn" class='btn btn-primary btn-md btn-block' >Search</button>
+					</form>
+				</div>
+			
 	</div>
-	<!--<div class='col-md-4'><div class="jumbotron"></div></div>-->
-	<div class='col-md-6'>
+	<div class="row"><br /></div>
+
 	<div class="jumbotron">
-			<h4><a href="{% url 'items:createitem' %}">Create Item</a></h4>
+		<div class="row">
+	
+			{% for item in items %}
+			<div class='col-md-2'>
+				<img src="{{MEDIA_URL}}{{item.object.item_image}}" height="120" width="120"><br />
+				<b>Item Title</b><br />
+   				{{ item.object.title }}<br />
+   				<b>Item Description</b><br />
+   				{{ item.object.subject }}<br />
+   				<br /><br />
+   			</div>
+				{% empty %}
+   				<p>No items found.</p>
+			{% endfor %}
 		</div>
 	</div>
-	<!--</div>-->
 
 </div>
 

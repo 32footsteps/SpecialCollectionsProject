@@ -5,11 +5,16 @@
 <div class="row">
 	<div class='col-md-6'>
 		<div class="jumbotron">
-{% for result in page.object_list %}
-   <p>{{ result.object.title }}</p>
-   <p>{{ result.object.subject }}</p>
+
+		<form type="get" action=".">
+		<input type="text" name="q">
+		<button type="submit">Search</button>
+		</form>
+{% for item in items.object_list %}
+   <p>{{ item.object.title }}</p>
+   <p>{{ item.object.subject }}</p>
 {% empty %}
-   <p>No results found.</p>
+   <p>No items found.</p>
 {% endfor %}
 </div></div></div>	
 

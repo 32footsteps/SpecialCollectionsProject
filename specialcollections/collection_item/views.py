@@ -5,7 +5,9 @@ from django.shortcuts import render
 from django.contrib import messages
 from django.template import Context, Template
 from django.http import HttpResponseRedirect
-
+from haystack.query import SearchQuerySet
+from haystack.forms import SearchForm
+from collection_item.forms import ItemForm
 
 def index_view(request):
 	return render(request, 'items/index.html')#, {'collections': collections})
@@ -36,4 +38,18 @@ def get_item(request):#, item_id):
 
 	if request.method == 'GET':
 		return render(request, 'items/item.html', {'item': item})	
-		#return HttpResponseRedirect(reverse('items:item'))
+
+def search_item(request):
+	print("search click")
+	try:
+		search_items = request.GET['q']
+
+	except:
+		return HttpResponseRedirect('collectiondb/')
+
+	results = SearchQuerySet().auto_query(search_items)
+
+	for r in results:
+		print("item name: " + r.object.item_image.url)
+
+	return render(request, 'items/index.html', {'items': results})	

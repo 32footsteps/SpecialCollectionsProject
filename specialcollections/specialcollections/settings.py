@@ -32,7 +32,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 #HAYSTACK_SITECONF = 'specialcollections.search_sites'
-
+HAYSTACK_DEFAULT_OPERATOR = 'OR'
 HAYSTACK_WHOOSH_PATH = '/home/zissou/Desktop/SeniorProject/index'
 
 HAYSTACK_CONNECTIONS = {
