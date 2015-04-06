@@ -31,9 +31,9 @@ def create_collection(request):
 
 def get_collection(request, **kwargs):
 	print(request)
-	collection = Collection.objects.get(title=kwargs.get('collection', ''))
-	print("collection " + str(collection.title))
+	collection = Collection.objects.get(collection_name=kwargs.get('collection', ''))
+	print("collection " + str(collection.collection_name))
 
-	if request.user == collection.object.author:
+	if request.user == collection.author:
 		if request.method == 'GET':
 			return render(request, 'collections/collection.html', {'collection': collection})
