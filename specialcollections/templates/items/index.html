@@ -7,19 +7,19 @@
 	
 	<div class="jumbotron">
 		<div class="row">
-		
 				<div class='col-md-4'>
-					<form type="get" action="{% url 'items:searchitem' %}">
-					<div class="input-group">
-					<input type="text" name="q" class='form-control' placeholder='Search Collections' />
-					<div class="input-group-btn">
-					<button type="submit" name="item_search_btn" class='btn btn-warning' ><i class="glyphicon glyphicon-search"></i></button>
-					</div>
-					</div>
-					</form>
+					{% if search_term %}
+						<span class="search_term">Search Term: {{search_term}}</span>
+					{% endif %}
+				</div>
+				<div class='col-md-4'>
+					{% if search_term %}
+						<span class="search_term">{{items.count}} Matches</span>
+					{% endif %}
 				</div>
 			
 		</div><br />
+		
 		<div class="row">
 	
 			{% for item in items %}

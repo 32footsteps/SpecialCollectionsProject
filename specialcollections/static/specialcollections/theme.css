@@ -26,3 +26,7 @@ body {
 .align-center{
 	align: center;
 }
+
+.search_term {
+  font-size: 32px;
+}

@@ -14,13 +14,25 @@
 			<div class='col-md-2'></div>
 		</div>
 		<div class="row">
+			<div class='col-md-4'>
+				<h4>Created At</h4>
+				<h4>{{collection.created_at}}</h4>
+			</div>
+			<div class='col-md-4'>
+				<h4>Description</h4>
+				<h4>{{collection.collection_description}}</h4>
+			</div>
+			<div class='col-md-4'>
+				<h4>Updated At</h4>
+				<h4>{{collection.updated_at}}</h4>
+			</div>
 		</div>
 	</div>
 {% endif %}
 	<div class="jumbotron">
 		<div class="row">
 			<div class='col-md-4'>
-				<form type="get" action="{% url 'collections:collectionsearchitem' %}">
+				
 				<div class="input-group">
 					<input type="text" name="q" id="collection_item_search_text" class='form-control' placeholder='Search Collections' />
 					<div class="input-group-btn">
@@ -34,9 +46,16 @@
 	
 			{% for item in items %}
 			<div class='col-md-2'>
+				{% csrf_token %}
 				<a href="{% url 'items:getitem' item.object.title %}"><img src="{{MEDIA_URL}}{{item.object.item_image}}" class="img-thumbnail img-responsive" height="80" width="80"></a><br />
+				}
    			</div>
-   			<div class='col-md-1'></div>
+   			<div class='col-md-1'>
+   				<ul id="search_results">
+
+   				</ul>
+
+   			</div>
 				{% empty %}
 		
 			{% endfor %}

@@ -47,5 +47,6 @@ def search_item(request):
 		return HttpResponseRedirect('collectiondb/')
 
 	results = SearchQuerySet().auto_query(search_items)
+	print("query: " + search_items)
 
-	return render(request, 'items/index.html', {'items': results})	
+	return render(request, 'items/index.html', {'items': results, 'search_term': search_items})	

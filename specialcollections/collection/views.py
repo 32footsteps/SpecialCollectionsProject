@@ -31,7 +31,6 @@ def create_collection(request):
 	return render(request, 'collections/createcollection.html', {'form': form})
 
 def get_collection(request, **kwargs):
-	print(request)
 	collection = Collection.objects.get(collection_name=kwargs.get('collection', ''))
 	print("collection " + str(collection.collection_name))
 
@@ -41,9 +40,11 @@ def get_collection(request, **kwargs):
 
 def collection_search_item(request, **kwargs):
 	try:
+		print("in try")
 		search_items = request.POST['q']
 
 	except:
+		print("in catch")
 		return HttpResponseRedirect('collections/')
 
 	results = SearchQuerySet().auto_query(search_items)

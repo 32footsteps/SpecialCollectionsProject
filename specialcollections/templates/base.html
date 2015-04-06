@@ -17,6 +17,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="{% static 'specialcollections/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'specialcollections/js/docs.min.js' %}"></script>
+    <script src="{% static 'specialcollections/js/ajax_search.js' %}"></script>
     {% endblock scriptload %}
 </head>
 
@@ -34,8 +35,19 @@
                   <a class="navbar-brand" href="{% url 'home' %}">Special Collections</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
+                <div class="col-sm-3 col-md-3 pull-right">
+                        <form type="get" action="{% url 'items:searchitem' %}"  class="navbar-form" role="search">
+                            <div class="input-group">
+                                <input type="text" name="q" class='form-control' placeholder='Search Collections' />
+                                <div class="input-group-btn">
+                                    <button type="submit" name="item_search_btn" class='btn btn-warning' ><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
                     <li>
                         <a href="{% url 'collections:index' %}">{{user.username}}'s Collections</a>
                     </li>
@@ -45,11 +57,10 @@
                     <li>
                         <a href="{% url 'items:createitem' %}">Create Item</a>
                     </li>
-                    <li>
-                        <a href="{% url 'items:index' %}">Search Database</a>
-                    </li>
-                    {% endif %}
+                   
                 </ul>
+
+                     {% endif %}
             </div>
         </div>
     </div>
