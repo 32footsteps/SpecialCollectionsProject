@@ -13,14 +13,13 @@
 {% if collections %}
 	<div class="row">
 	{% for collection in collections %}
-	<div onclick="location.href='{% url 'collections:getcollection' collection.collection_name %}'">
-	<div class='col-md-3 bg-danger'>
-	<div class='col-md-3 bg-danger'>
 	
+	<div class='col-md-3 bg-danger'>
+	<div onclick="location.href='{% url 'collections:getcollection' collection.collection_name %}'">
 		<h3 class="page-header">{{collection.collection_name}}</h3>
 		<h4 class="page-header">Collection Description</h4>
 		{{collection.collection_description|linebreaks}}
-
+		
 		{% for item in collection.items.all %}
 			{{item.title}}{% if not forloop.last %} | {% endif %}
 		{% endfor %}

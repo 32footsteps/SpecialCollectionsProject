@@ -1,10 +1,11 @@
 from django.core.urlresolvers import reverse
 from collection.models import Collection
 from collection.forms import CollectionForm
+from collection_item.models import Item
 from django.shortcuts import render
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-
+from haystack.query import SearchQuerySet
 
 def index_view(request):
 	collections = Collection.objects.filter(author=request.user)
@@ -37,3 +38,15 @@ def get_collection(request, **kwargs):
 	if request.user == collection.author:
 		if request.method == 'GET':
 			return render(request, 'collections/collection.html', {'collection': collection})
+
+def collection_search_item(request, **kwargs):
+	try:
+		search_items = request.POST['q']
+
+	except:
+		return HttpResponseRedirect('collections/')
+
+	results = SearchQuerySet().auto_query(search_items)
+	collection = Collection.objects.get(collection_name=kwargs.get('collection', ''))
+
+	return render(request, 'collections/collection.html', {'items': results})	
