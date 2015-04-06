@@ -32,15 +32,14 @@ def create_item(request):
 	
 	return render(request, 'items/createitem.html', {'form': form})
 
-def get_item(request):#, item_id):
-	item = Item.objects.get(pk=2)#pk=item_id)
+def get_item(request, **kwargs):
+	item = Item.objects.get(title=kwargs.get('item', ''))
 	print("title " + str(item.title))
 
 	if request.method == 'GET':
 		return render(request, 'items/item.html', {'item': item})	
 
 def search_item(request):
-	print("search click")
 	try:
 		search_items = request.GET['q']
 
@@ -48,8 +47,5 @@ def search_item(request):
 		return HttpResponseRedirect('collectiondb/')
 
 	results = SearchQuerySet().auto_query(search_items)
-
-	for r in results:
-		print("item name: " + r.object.item_image.url)
 
 	return render(request, 'items/index.html', {'items': results})	

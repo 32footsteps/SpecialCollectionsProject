@@ -13,7 +13,8 @@
 {% if collections %}
 	<div class="row">
 	{% for collection in collections %}
-	<div class='col-md-4'>
+	<div class='col-md-3 bg-danger'>
+	
 		<h3 class="page-header">{{collection.collection_name}}</h3>
 		<h4 class="page-header">Collection Description</h4>
 		{{collection.collection_description|linebreaks}}
@@ -22,7 +23,8 @@
 			{{item.title}}{% if not forloop.last %} | {% endif %}
 		{% endfor %}
 	</div>
-	</div>
+	<div class='col-md-1'></div>
+	
 	{% endfor %}
 </div>
 {% else %}
