@@ -7,5 +7,5 @@ urlpatterns = patterns('',
 		url(r'^$', index_view, name='index'),
 		url(r'^createitem/', create_item, name='createitem'),
 		url(r'^searchitem/', search_item, name='searchitem'),
-		url(r'^(?P<item>(?!\s*$).+)', get_item, name='getitem'),
+		url(r'^item/(?P<item>(?!\s*$).+)', get_item, name='getitem'),
 ) 
