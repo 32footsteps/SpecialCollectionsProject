@@ -8,12 +8,12 @@
 <h1 align='center'>{{user.username}}'s Collections</h1>
 </div>
 -->
-
+<div class="container">
 <div class="jumbotron">
 {% if collections %}
 	<div class="row">
 	{% for collection in collections %}
-	<div class='col-md-3 bg-danger'>
+	<div onclick="location.href='{% url 'collections:getcollection' %}'" class='col-md-3 bg-danger'>
 	
 		<h3 class="page-header">{{collection.collection_name}}</h3>
 		<h4 class="page-header">Collection Description</h4>
@@ -32,5 +32,5 @@
 	<h3>No Collections Yet!</h3>
 </div>
 {% endif %}
-
+</div>
 {% endblock body %}

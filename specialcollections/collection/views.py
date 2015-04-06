@@ -19,7 +19,6 @@ def create_collection(request):
 
 		if form.is_valid():
 			collection = form.save(commit=False)
-			#collection.author = user.username
 			collection.author = user
 			collection.save()
 			messages.add_message(request, messages.INFO, 'Collection Created')
@@ -29,3 +28,12 @@ def create_collection(request):
 		form = CollectionForm()
 
 	return render(request, 'collections/createcollection.html', {'form': form})
+
+def get_collection(request, **kwargs):
+	print(request)
+	collection = Collection.objects.get(title=kwargs.get('collection', ''))
+	print("collection " + str(collection.title))
+
+	if request.user == collection.object.author:
+		if request.method == 'GET':
+			return render(request, 'collections/collection.html', {'collection': collection})

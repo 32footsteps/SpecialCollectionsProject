@@ -2,38 +2,144 @@
 {% load static %}
 {% block body %}
 
-<!--
-
-<div class="jumbotron">
-<h1 align='center'>{{user.username}}'s Collections</h1>
-</div>
--->
-
-<div class='col-md-12'>
+<div class='container'>
 
 {% if user == item.creator or user.is_admin %}
 <!-- Create form for editing item-->
 	<div class="jumbotron">
 	<div class="row">
-	<div class='col-md-6'>
-		<p>User is admin {{user.is_admin}}</p>
-		<p>{{item.title}}</p>
-		<p>{{item.subject}}</p>
-		<p>{{item.description4}}</p>
-		<img src="{{MEDIA_URL}}{{item.item_image}}" height="420" width="420">
-	
+	<div class='col-md-4'>
+	<img src="{{MEDIA_URL}}{{item.item_image}}" height="420" width="420" class="img-rounded">
+	</div>
+	<div class='col-md-1'></div>
+	<div class='col-md-7'>
+		<h2>Item Title</h2>
+		<b>{{item.title}}</b><br />
+		<div class="row">
+			<div class='col-md-3'>
+			<h4>Subject</h4>
+			{{item.subject}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Description</h4>
+			{{item.description}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Creator</h4>
+			{{item.creator}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Publisher</h4>
+			{{item.publisher}}<br />
+			</div>
+		</div>
+		<div><br /></div>
+		<div class="row">
+			<div class='col-md-3'>
+			<h4>Creation Date</h4>
+			{{item.date}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Updated At</h4>
+			{{item.updated_at}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Identifier</h4>
+			{{item.identifier}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Coverage</h4>
+			{{item.coverage}}<br />
+			</div>
+		</div>
+		<div><br /></div>
+		<div class="row">
+			<div class='col-md-3'>
+			<h4>Item Type</h4>
+			{{item.item_type}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Item Format</h4>
+			{{item.item_format}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Language</h4>
+			{{item.language}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Rights</h4>
+			{{item.rights}}<br />
+			</div>
+		</div>
 	</div>
 	</div>
 
 {% else %}
 	<div class="jumbotron">
 	<div class="row">
-	<div class='col-md-6'>
-		<p>{{item.title}}</p>
-		<p>{{item.subject}}</p>
-		<p>{{item.description4}}</p>
-		<img src="{{MEDIA_URL}}{{item.item_image}}" height="420" width="420">
-	
+	<div class='col-md-4'>
+	<img src="{{MEDIA_URL}}{{item.item_image}}" height="420" width="420" class="img-rounded">
+	</div>
+	<div class='col-md-1'></div>
+	<div class='col-md-7'>
+		<h2>Item Title</h2>
+		<b>{{item.title}}</b><br />
+		<div class="row">
+			<div class='col-md-3'>
+			<h4>Subject</h4>
+			{{item.subject}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Description</h4>
+			{{item.description}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Creator</h4>
+			{{item.creator}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Publisher</h4>
+			{{item.publisher}}<br />
+			</div>
+		</div>
+		<div><br /></div>
+		<div class="row">
+			<div class='col-md-3'>
+			<h4>Creation Date</h4>
+			{{item.date}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Updated At</h4>
+			{{item.updated_at}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Identifier</h4>
+			{{item.identifier}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Coverage</h4>
+			{{item.coverage}}<br />
+			</div>
+		</div>
+		<div><br /></div>
+		<div class="row">
+			<div class='col-md-3'>
+			<h4>Item Type</h4>
+			{{item.item_type}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Item Format</h4>
+			{{item.item_format}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Language</h4>
+			{{item.language}}<br />
+			</div>
+			<div class='col-md-3'>
+			<h4>Rights</h4>
+			{{item.rights}}<br />
+			</div>
+		</div>
 	</div>
 	</div>
 

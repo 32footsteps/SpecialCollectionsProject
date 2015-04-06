@@ -8,7 +8,6 @@ class Collection(models.Model):
 
 	collection_name = models.CharField(max_length=70, primary_key=True)
 	author = models.ForeignKey(SCUser, default=None, blank=False)
-	#author = models.CharField(max_length=40, blank=False)
 
 	collection_description = models.TextField()
 	item = models.ManyToManyField(Item, blank=True)
