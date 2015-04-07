@@ -57,10 +57,22 @@
                     <li>
                         <a href="{% url 'items:createitem' %}">Create Item</a>
                     </li>
+                    <li>
+                        <a href="{% url 'logout' %}">Logout</a>
+                    </li>
                    
                 </ul>
 
-                     {% endif %}
+            {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li>
+                        <a href="#">Register</a>
+                    </li>
+                </ul>
+            {% endif %}
             </div>
         </div>
     </div>

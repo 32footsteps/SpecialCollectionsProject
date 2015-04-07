@@ -1,11 +1,11 @@
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.shortcuts import render
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 
-def home_view(request):
+def login_view(request):
 
 	if request.method == 'POST':
 		username = request.POST.get('username', None)
@@ -23,3 +23,14 @@ def home_view(request):
 
 
 	return render(request, 'home.html')
+
+def home_view(request):
+
+	if request.user.is_authenticated():
+		print("user is auth: " + str(request.user.is_authenticated()))
+
+	return render(request, 'dashhome.html')
+
+def logout_view(request):
+	logout(request)
+	return render(request, 'dashhome.html')

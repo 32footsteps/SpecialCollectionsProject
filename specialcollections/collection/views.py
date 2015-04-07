@@ -16,7 +16,6 @@ def create_collection(request):
 	if request.method == 'POST':
 		form = CollectionForm(request.POST)
 		user = request.user
-		print(str(user.username))
 
 		if form.is_valid():
 			collection = form.save(commit=False)
@@ -32,7 +31,6 @@ def create_collection(request):
 
 def get_collection(request, **kwargs):
 	collection = Collection.objects.get(collection_name=kwargs.get('collection', ''))
-	print("collection " + str(collection.collection_name))
 
 	if request.user == collection.author:
 		if request.method == 'GET':
@@ -46,6 +44,13 @@ def collection_search_item(request, **kwargs):
 	except:
 		return HttpResponseRedirect('collections/')
 
-	results = SearchQuerySet().auto_query(search_items)
+	if not search_items == '':
+		results = SearchQuerySet().auto_query(search_items)
 
-	return render(request, 'search/search.html', {'items': results})	
+		return render(request, 'search/search.html', {'items': results})
+	else:
+		return render(request, 'search/search.html')
+
+#def add_item(request, **kwargs):
+
+
