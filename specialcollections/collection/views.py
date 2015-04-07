@@ -40,14 +40,12 @@ def get_collection(request, **kwargs):
 
 def collection_search_item(request, **kwargs):
 	try:
-		print("in try")
+		
 		search_items = request.POST['q']
 
 	except:
-		print("in catch")
 		return HttpResponseRedirect('collections/')
 
 	results = SearchQuerySet().auto_query(search_items)
-	collection = Collection.objects.get(collection_name=kwargs.get('collection', ''))
 
-	return render(request, 'collections/collection.html', {'items': results})	
+	return render(request, 'search/search.html', {'items': results})	

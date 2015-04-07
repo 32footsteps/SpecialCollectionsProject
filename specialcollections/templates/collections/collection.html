@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'collectionbase.html' %}
 {% load static %}
 {% block body %}
 
@@ -39,10 +39,17 @@
 					<button type="submit" id="collection_item_search" name="item_search_btn" class='btn btn-warning' ><i class="glyphicon glyphicon-search"></i></button>
 					</div>
 				</div>
-				</form>
+		
 			</div>
 		</div><br />
 		<div class="row">
+		<div class='col-md-12'>
+			{% csrf_token %}
+   				<div id="search_results">
+   					
+   				</div>
+
+   			</div>
 	
 			{% for item in items %}
 			<div class='col-md-2'>

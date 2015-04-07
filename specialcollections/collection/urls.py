@@ -6,6 +6,6 @@ from collection.views import index_view, create_collection, get_collection, coll
 urlpatterns = patterns('',
 		url(r'^$', index_view, name='index'),
 		url(r'^createcollection/', create_collection, name='createcollection'),
-		url(r'^collectionsearchitem/', collection_search_item, name='collectionsearchitem'),
+		url(r'^collectionsearchitem/$', collection_search_item, name='collectionsearchitem'),
 		url(r'^(?P<collection>(?!\s*$).+)', get_collection, name='getcollection'),
 )

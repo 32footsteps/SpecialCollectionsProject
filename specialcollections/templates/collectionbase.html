@@ -1,0 +1,73 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>{% block title %}Special Collections{% endblock title %}</title>
+    {% block stylesheets %}
+    <link rel="stylesheet" href="{% static 'specialcollections/bootstrap.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'specialcollections/bootstrap-theme.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'specialcollections/theme.css' %}" />
+    {% endblock stylesheets %}
+    {% block scriptload %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{% static 'specialcollections/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'specialcollections/js/docs.min.js' %}"></script>
+    <script src="{% static 'specialcollections/js/ajax_search.js' %}"></script>
+    {% endblock scriptload %}
+</head>
+
+
+<body role="document">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                  <a class="navbar-brand" href="{% url 'home' %}">Special Collections</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                {% if user.is_authenticated %}
+          
+                    <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="{% url 'collections:index' %}">{{user.username}}'s Collections</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'collections:createcollection' %}">Create Collection</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'items:createitem' %}">Create Item</a>
+                    </li>
+                   
+                </ul>
+
+                     {% endif %}
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+        <div class="container">
+        <ul class="messages">
+        {% for message in messages %}
+        <li id="message_{{ forloop.counter }}"
+            {% if message.tags %} class="alert alert-{{message.tags}}"{% endif %}>
+            {{message}}
+        </li>
+        {% endfor %}
+        </ul>
+        </div>
+    {% endif %}
+
+    <div class="container theme-showcase" role="main">
+    {% block body %}
+    {% endblock body %}
+    </div>
