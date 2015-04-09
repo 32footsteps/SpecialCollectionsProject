@@ -38,7 +38,6 @@ def get_collection(request, **kwargs):
 
 def collection_search_item(request, **kwargs):
 	try:
-		
 		search_items = request.POST['q']
 
 	except:
@@ -51,6 +50,20 @@ def collection_search_item(request, **kwargs):
 	else:
 		return render(request, 'search/search.html')
 
-#def add_item(request, **kwargs):
+def add_item(request, **kwargs):
+	try:
+		title = request.POST['title']
 
+	except:
+		return HttpResponseRedirect('collections/')
+
+	item = Item.objects.get(title=kwargs.get('item', ''))
+	collection = Collection.objects.get(pk=kwargs.get('collection_name', ''))
+	
+	if collection.objects.filter(item__pk=item.id) is not None:
+		collection.item.add(item)
+		collection.save()
+
+
+	return render(request, 'collections/additemcollection.html')
 

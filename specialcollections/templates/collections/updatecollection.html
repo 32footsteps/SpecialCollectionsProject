@@ -1,0 +1,13 @@
+{% block content %}
+		<div class="row">
+	
+			{% for item in items %}
+			<div class='col-md-2'>
+				<a href="{% url 'items:getitem' item.object.title %}"><img src="{{MEDIA_URL}}{{item.object.item_image}}" class="img-thumbnail img-responsive" height="120" width="150"></a><br /><br />
+			
+   			</div>
+   			<div class='col-md-1'></div>
+			{% endfor %}
+		</div>
+
+{% endblock %}

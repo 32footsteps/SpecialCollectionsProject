@@ -27,6 +27,14 @@
 				<h4>{{collection.updated_at}}</h4>
 			</div>
 		</div>
+		<div class="row">
+			<div class='col-md-12'>
+				{% csrf_token %}
+   					<div id="collection_items">
+   					
+   					</div>
+   			</div>
+		</div>
 	</div>
 {% endif %}
 	<div class="jumbotron">
@@ -43,29 +51,13 @@
 			</div>
 		</div><br />
 		<div class="row">
-		<div class='col-md-12'>
-			{% csrf_token %}
-   				<div id="search_results">
-   					
-   				</div>
-
-   			</div>
-	
-			{% for item in items %}
-			<div class='col-md-2'>
+			<div class='col-md-12'>
 				{% csrf_token %}
-				<a href="{% url 'items:getitem' item.object.title %}"><img src="{{MEDIA_URL}}{{item.object.item_image}}" class="img-thumbnail img-responsive" height="80" width="80"></a><br />
-				}
-   			</div>
-   			<div class='col-md-1'>
-   				<ul id="search_results">
-
-   				</ul>
+   					<div id="search_results">
+   					
+   					</div>
 
    			</div>
-				{% empty %}
-		
-			{% endfor %}
 		</div>
 	</div>
 </div>
