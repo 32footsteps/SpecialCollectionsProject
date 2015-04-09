@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.41, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.15  Distrib 10.0.17-MariaDB, for Linux (x86_64)
 --
 -- Host: localhost    Database: special_collections_db
 -- ------------------------------------------------------
--- Server version	5.5.41-0ubuntu0.14.04.1
+-- Server version	10.0.17-MariaDB-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -54,8 +54,8 @@ CREATE TABLE `auth_group_permissions` (
   UNIQUE KEY `group_id` (`group_id`,`permission_id`),
   KEY `auth_group_permissions_0e939a4f` (`group_id`),
   KEY `auth_group_permissions_8373b171` (`permission_id`),
-  CONSTRAINT `auth_group_permission_group_id_4fe58bc8340c2ad9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
-  CONSTRAINT `auth_group__permission_id_2a2d382d45abcb59_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
+  CONSTRAINT `auth_group__permission_id_2a2d382d45abcb59_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
+  CONSTRAINT `auth_group_permission_group_id_4fe58bc8340c2ad9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -122,7 +122,6 @@ CREATE TABLE `collection_collection` (
 
 LOCK TABLES `collection_collection` WRITE;
 /*!40000 ALTER TABLE `collection_collection` DISABLE KEYS */;
-INSERT INTO `collection_collection` VALUES ('Fuck','shit','2015-04-02 22:40:34','2015-04-02 22:40:34',2),('Fuck jk','gbhujnkml','2015-04-05 08:25:54','2015-04-05 08:25:54',1),('Jew Gold','Shit','2015-03-30 16:56:29','2015-03-30 16:56:29',1),('sdljfsdlfj','lsjlfjdsfdfs\r\n','2015-04-02 22:21:39','2015-04-02 22:21:39',1);
 /*!40000 ALTER TABLE `collection_collection` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +194,6 @@ CREATE TABLE `collection_item_item` (
 
 LOCK TABLES `collection_item_item` WRITE;
 /*!40000 ALTER TABLE `collection_item_item` DISABLE KEYS */;
-INSERT INTO `collection_item_item` VALUES (1,'Jews and Their Gold','General Jewery','kfdskfkdsj','kjdfsjdsjkf','kjhdklfjdsjflk','2015-03-30 16:58:07','kdsfds','sdfsd','sdfsdf','sdfsdf','sdfsdfs','dsfsdf','sdfsdf','sdfsd','2015-03-30 16:58:08',0,'media/1t1rAFi.jpg',1),(2,'Shit Cowboys','Cowboys in Pueblo','Shit Cowboys are still cowboys','Jew World','Me','2015-03-31 16:18:14','Mime','Shit','Joos','None','Farsi','None','kldf','Jew','2015-03-31 16:18:15',0,'media/1N4bP.jpg',1),(3,'Jew ABlls','sdsf','xfvxvxxc','xcvxv','vxcvx','2015-04-05 07:26:58','xcvx','xcvxcv','xcvxc','xcvcxv','xcvxcv','xcvxc','xcvx','xcvxc','2015-04-05 07:26:58',0,'media/00I0I_2CIF1RGme3L_600x450_niR2juj.jpg',2),(4,'Jew Shit','fddgdfgd','fgffg','dfgd','dfgdfg','2015-04-05 07:27:29','dfgdf','dfgdfg','dfgdfg','dfgd','dfgdfg','dfgd','dfg','dfg','2015-04-05 07:27:29',0,'media/4CV7kyq.jpg',2),(5,'Jew Shit rtr','rtryrty','rtytry','rtyr','rtyrty','2015-04-05 07:28:19','','rtyr','rt','rtyrty','yy','yy','','','2015-04-05 07:28:19',0,'media/00505_89R9PSBpI5B_600x450.jpg',2),(6,'Jew Habalas','asdasd','asdasdsa','asdasd','asdasd','2015-04-05 07:30:01','','asdasd','asdasd','asdsad','asdasd','sadasd','','','2015-04-05 07:30:01',0,'media/8326580594_ec8b059b81_b.jpg',2),(7,'Jewery Shit','dsfdsfdf','dsfdsf','dfdsf','dsfsdf','2015-04-05 07:30:36','sdfsd','dsfsf','dsfsd','sdfsd','sdfsd','sdfsdf','','','2015-04-05 07:30:36',0,'media/8255108403_4c26d63bc0_h.jpg',2),(8,'Jew Shit sdf','dsfdsf','sdfdsf','dsfsdf','sdfds','2015-04-05 07:31:04','','sdfsd','sdf','rvrvr','vvfv','vfvf','','','2015-04-05 07:31:04',0,'media/andy-lee01.jpg',2),(9,'gaf','shit','Fart shit','sdddsf','Dick Fill','2015-04-05 07:36:19','','dsfds','sdfs','dsfdsf','sdfdsf','sfsdf','','','2015-04-05 07:36:19',0,'media/andy-lee04.jpg',2);
 /*!40000 ALTER TABLE `collection_item_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -277,8 +275,8 @@ CREATE TABLE `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin_log_417f1b1c` (`content_type_id`),
   KEY `django_admin_log_e8701ad4` (`user_id`),
-  CONSTRAINT `django_adm_user_id_7b001ab949c6048e_fk_collection_user_scuser_id` FOREIGN KEY (`user_id`) REFERENCES `collection_user_scuser` (`id`),
-  CONSTRAINT `djang_content_type_id_1da037826d73c83c_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`)
+  CONSTRAINT `djang_content_type_id_1da037826d73c83c_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
+  CONSTRAINT `django_adm_user_id_7b001ab949c6048e_fk_collection_user_scuser_id` FOREIGN KEY (`user_id`) REFERENCES `collection_user_scuser` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -379,4 +377,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-09 13:17:48
+-- Dump completed on 2015-04-09 13:33:29
